@@ -1,0 +1,139 @@
+﻿@model IEnumerable<WebApplication1.Models.NurseEvent>
+
+@{
+    ViewBag.Title = "事件报告列表";
+}
+
+<h2>事件报告列表</h2>
+
+<p>
+    @Html.ActionLink("新事件报告", "Create") |
+    <a href="javascript:void(0);" class="btn btn-info btn-xs showdetail" data-toggle="modal" data-target="#filterModal">搜索</a>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dept_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bed_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.patient_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.event_happen_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.event_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.event_level)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.reporter_name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.dept_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bed_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.patient_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_happen_time)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.event_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_level)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.reporter_name)
+            </td>
+            <td>
+                @Html.ActionLink("修改/处理", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("删除", "Delete", new { id = item.ID })
+                <a href="javascript:void(0);" class="btn btn-info btn-xs showdetail" data-toggle="modal" data-target="#detailsModal" data-id="@item.ID">详情</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <section id="loginForm">
+                            @using (Html.BeginForm("Index1", "NurseEvent", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-5 col-md-offset-1">
+                                            @Html.TextBox("searchfromdate", "", new { placeholder = "从哪天" })
+                                        </div>
+                                        <div class="col-md-5 col-md-offset-1">
+                                            @Html.TextBox("searchtodate", "", new { placeholder = "到哪天" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-5 col-md-offset-1">
+                                            @Html.CheckBox("searchyettohandle",true)
+                                            @Html.Label("未处理")
+
+
+                                        </div>
+                                        <div class="col-md-5 col-md-offset-1">
+                                            @Html.CheckBox("searchandled", true)
+                                            @Html.Label("已处理")
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-8 col-md-offset-1">
+                                            @Html.TextBox("searchdept", "", new { placeholder = "选择科室" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="搜索" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            }
+                        </section>
+                    </div>
+                </div><!--col-md-8-->
+            </div><!-- /.row -->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<script type="text/javascript">
+        //Everytime we press delete in the table row
+        $('.showdetail').click(function (e) {
+            e.preventDefault();
+            //Call our delete actionresult and pass over this id
+            $.get("@Url.Action("PartialDetails", "NurseEvent")", { id: $(this).attr("data-id") }, function (data) {
+                $("#detailsModal").html(data);
+            });
+        });
+</script>

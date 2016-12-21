@@ -1,0 +1,259 @@
+﻿@model WebApplication1.Models.NurseEvent
+
+@{
+    ViewBag.Title = "删除事件报告";
+}
+
+<h2>删除</h2>
+
+<h3>确定删除此报告?</h3>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="删除" class="btn btn-default" />
+    </div>
+}
+<div>
+    <h4>护理不良事件</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.patient_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dept_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dept_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bed_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bed_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patient_age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient_age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patient_sex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient_sex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.charge_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.charge_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diagnosis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diagnosis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.inp_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.inp_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.admission_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.admission_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_happen_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_happen_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_info)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_info)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_level)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_level)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_service)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_service)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_fact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_fact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_relevant_factor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_relevant_factor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_patient_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_patient_status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_harm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_harm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_harm_grade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_harm_grade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_concerned_staff1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_concerned_staff1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_concerned_staff2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_concerned_staff2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_concerned_staff3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_concerned_staff3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_treatment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_treatment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_treatment_after)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_treatment_after)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reporter_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reporter_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reporter_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reporter_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.handled_by_headnurse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.handled_by_headnurse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.handled_by_leader)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.handled_by_leader)
+        </dd>
+
+    </dl>
+
+    <div>
+        @Html.ActionLink("回到列表", "Index")
+    </div>
+</div>

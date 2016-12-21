@@ -1,0 +1,16 @@
+﻿@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Authentication", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @*@Html.ActionLink("您好，" + System.Web.Security.FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).UserData.Split(new char[] { '|' })[0] + "!", "Index", "NurseEvent")*@
+                @Html.ActionLink("您好，" + User.Identity.Name.Split(new char[] { ',' })[1] + "！", "Index", "NurseEvent")
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">退出</a></li>
+        </ul>
+    }
+}
+
